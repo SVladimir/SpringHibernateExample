@@ -41,6 +41,20 @@ public class AccountDAOImpl implements AccountDAO {
 		session.close();
 		return accountList;
 	}
+
+	@Override
+	public void removeAccount(Long id) {
+		Session session = this.sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		Account account = (Account) session.get(
+				Account.class, id);
+		if (null != account) {
+			session.delete(account);
+		}
+		tx.commit();
+		session.close();
+
+	}
 	@Override
 	public Account findAcc(Long id) {
 

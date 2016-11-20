@@ -24,12 +24,12 @@ public class TestAccount {
     }
     @Test
     public void testFindClient() {
-        Assert.assertTrue(account.getId() == account.find(client.getId()).getId());
+        Assert.assertTrue(account.getId() == accountDAO.findAcc(account.getId()).getId());
     }
     @Test
     public void testDelClient() {
-        clientDAO.removeClient(client.getId());
-        Assert.assertNull(clientDAO.findClient(client.getId()));
+        accountDAO.removeAccount(account.getId());
+        Assert.assertNull(accountDAO.findAcc(account.getId()));
     }
 
 
