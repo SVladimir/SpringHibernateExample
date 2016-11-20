@@ -10,10 +10,14 @@ public interface DocumentDAO {
 
     public List<Document> list();
 
+
+    List<Document> list_by_status(String status);
+
     public void removeDocument(Integer id);
 
     public Document findDocument(Long id);
 
     public void removeAll();
 
+    void update(Document d);
 }

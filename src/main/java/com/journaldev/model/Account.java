@@ -1,10 +1,14 @@
 package com.journaldev.model;
+
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "ACCOUNTS")
+@Transactional
 public class Account implements Serializable{
     private static final long serialVersionUID = 0L;
 

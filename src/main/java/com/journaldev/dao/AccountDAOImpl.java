@@ -1,6 +1,7 @@
 package com.journaldev.dao;
 
 import com.journaldev.model.Account;
+import com.journaldev.model.Client;
 import com.journaldev.model.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -39,6 +40,18 @@ public class AccountDAOImpl implements AccountDAO {
 		List<Account> accountList = session.createQuery("from Account").list();
 		session.close();
 		return accountList;
+	}
+	@Override
+	public Account findAcc(Long id) {
+
+		Session session = this.sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		Account account = (Account) session.get(
+				Account.class, id);
+		tx.commit();
+		session.close();
+		return account;
+
 	}
 	@Override
 	public void removeAll(){

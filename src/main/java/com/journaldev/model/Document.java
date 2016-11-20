@@ -1,4 +1,7 @@
 package com.journaldev.model;
+
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -6,7 +9,8 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "DOCUMENTS")
-public class Document implements Serializable{
+@Transactional
+public class Document implements Serializable {
     private static final long serialVersionUID = 0L;
 
     public Document() {
@@ -17,6 +21,7 @@ public class Document implements Serializable{
         this.accountCt = accountCt;
         this.sum = sum;
         this.purpuse = purpuse;
+        this.status="NEW";
     }
 
     @Id
@@ -36,6 +41,8 @@ public class Document implements Serializable{
 
     @Column(name = "PURPOSE", length = 210)
     private String purpuse;
+    @Column(name = "STATUS", length = 25)
+    private String status;
 
     public Long getId() {
         return id;
@@ -73,8 +80,17 @@ public class Document implements Serializable{
         return purpuse;
     }
 
+
     public void setPurpuse(String purpuse) {
         this.purpuse = purpuse;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     @Override

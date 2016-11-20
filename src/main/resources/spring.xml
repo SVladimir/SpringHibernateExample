@@ -31,6 +31,7 @@
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
+
 			<list>
 				<value>com.journaldev.model.Person</value>
 				<value>com.journaldev.model.Client</value>

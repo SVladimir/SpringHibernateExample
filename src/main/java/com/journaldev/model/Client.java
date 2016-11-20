@@ -1,10 +1,14 @@
 package com.journaldev.model;
+
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 
 @Entity
 @Table(name = "CLIENTS")
+@Transactional
 public class Client implements Serializable{
     private static final long serialVersionUID = 0L;
 

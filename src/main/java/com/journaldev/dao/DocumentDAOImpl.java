@@ -1,11 +1,14 @@
 package com.journaldev.dao;
 
+import com.journaldev.model.Account;
 import com.journaldev.model.Document;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import java.util.List;
+
+import static java.lang.Thread.sleep;
 
 public class DocumentDAOImpl implements DocumentDAO {
 
@@ -29,6 +32,15 @@ public class DocumentDAOImpl implements DocumentDAO {
     public List<Document> list() {
         Session session = this.sessionFactory.openSession();
         List<Document> DocumentList = session.createQuery("from Document").list();
+        session.close();
+        return DocumentList;
+    }
+
+
+    @Override
+    public List<Document> list_by_status(String status) {
+        Session session = this.sessionFactory.openSession();
+        List<Document> DocumentList = session.createQuery("from Document d where d.status = :status").setParameter("status", status).list();
         session.close();
         return DocumentList;
     }
@@ -61,7 +73,7 @@ public class DocumentDAOImpl implements DocumentDAO {
 
         Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-        Document document = (Document) session.load(
+        Document document = (Document) session.get(
                 Document.class, id);
         tx.commit();
         session.close();
@@ -69,4 +81,12 @@ public class DocumentDAOImpl implements DocumentDAO {
 
     }
 
+    @Override
+    public void update(Document d) {
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.update(d);
+        tx.commit();
+        session.close();
+    }
 }

@@ -34,6 +34,18 @@ public class ClientDAOImpl implements ClientDAO {
 		return ClientList;
 	}
 	@Override
+	public Client findClient(Long id) {
+
+		Session session = this.sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		Client client = (Client) session.get(
+				Client.class, id);
+		tx.commit();
+		session.close();
+		return client;
+
+	}
+	@Override
 	public void removeAll(){
 		List<Client> clients = list();
 		for (Client client : clients) {
@@ -44,6 +56,18 @@ public class ClientDAOImpl implements ClientDAO {
 			session.close();
 		}
 	}
+	@Override
+	public void removeClient(Long id) {
+		Session session = this.sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		Client client = (Client) session.get(
+				Client.class, id);
+		if (null != client) {
+			session.delete(client);
+		}
+		tx.commit();
+		session.close();
 
+	}
 
 }

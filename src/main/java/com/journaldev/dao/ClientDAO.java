@@ -10,6 +10,9 @@ public interface ClientDAO {
 
     public List<Client> list();
 
+    Client findClient(Long id);
+
     public void removeAll();
 
+    void removeClient(Long id);
 }

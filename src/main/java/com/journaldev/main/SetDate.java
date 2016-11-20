@@ -22,8 +22,11 @@ public class SetDate {
         Client bank = new Client("Sberbank");
         clientDAO.save(bank);
         Account account = new Account(client, "40817978912308495837");
+        account.setSaldo(BigDecimal.valueOf(30000, 2));
         Account accountDep = new Account(client, "42305978391824839323");
+        accountDep.setSaldo(BigDecimal.valueOf(30000, 2));
         Account accountBank = new Account(bank, "20202810938493859685");
+        accountBank.setSaldo(BigDecimal.valueOf(30000, 2));
         accountDAO.save(account);
         accountDAO.save(accountDep);
         accountDAO.save(accountBank);
