@@ -30,7 +30,7 @@ public class IProcessingImpl implements IProccesing {
         System.out.print("doc sum=" + sum);
         System.out.print("\t\t");
         accountDt.setSaldo(accountDt.getSaldo().subtract(document.getSum()));
-        accountCt.setSaldo(accountCt.getSaldo().subtract(document.getSum()));
+        accountCt.setSaldo(accountCt.getSaldo().add(document.getSum()));
         accountDAO.update(accountCt);
         accountDAO.update(accountDt);
         System.out.print("accountDt saldo=" + accountDt.getSaldo());

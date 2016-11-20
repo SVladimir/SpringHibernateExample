@@ -40,5 +40,15 @@ public class AccountDAOImpl implements AccountDAO {
 		session.close();
 		return accountList;
 	}
+	@Override
+	public void removeAll(){
+		List<Account> accounts = list();
+		for (Account account : accounts) {
+			Session session = this.sessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+			session.delete(account);
+			tx.commit();
+			session.close();
+		}
 
-}
+}}

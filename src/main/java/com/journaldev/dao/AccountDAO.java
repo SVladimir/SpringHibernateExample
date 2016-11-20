@@ -12,4 +12,6 @@ public interface AccountDAO {
 
     public void update(Account a);
 
+    public void removeAll();
+
 }

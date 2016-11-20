@@ -12,6 +12,8 @@ public interface DocumentDAO {
 
     public void removeDocument(Integer id);
 
-    public Document findDocument(Integer id);
+    public Document findDocument(Long id);
+
+    public void removeAll();
 
 }
