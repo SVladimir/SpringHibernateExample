@@ -17,5 +17,6 @@ public interface AccountDAO {
     Account findAcc(Long id);
 
     public void removeAll();
+    
 
 }
