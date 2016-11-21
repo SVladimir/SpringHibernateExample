@@ -20,6 +20,7 @@ import com.journaldev.model.Client;
 import com.journaldev.model.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -29,6 +30,7 @@ import java.math.BigDecimal;
  */
 // tag::code[]
 @Component
+@ComponentScan("com.journaldev.model")
 public class DatabaseLoader implements CommandLineRunner {
 
     private final DocumentRepository repositoryDocument;

@@ -19,7 +19,6 @@ public class EraseDate {
         ClientDAO clientDAO = context.getBean(ClientDAO.class);
         clientDAO.removeAll();
         System.out.println("Kill all clients: !!!!!!!!!!!!!");
-
         context.close();
 
     }
