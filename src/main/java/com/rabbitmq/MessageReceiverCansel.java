@@ -1,11 +1,11 @@
-package com.journaldev.message;
+package com.rabbitmq;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
 
-public class MessageReceiver {
+public class MessageReceiverCansel {
 
     public String recciev() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
@@ -17,7 +17,7 @@ public class MessageReceiver {
         Connection conn = factory.newConnection();
         Channel channel = conn.createChannel();
         String exchangeName = "myExchange";
-        String queueName = "myQueue";
+        String queueName = "myQueueCansel";
         String routingKey = "testRoute";
         boolean durable = true;
         channel.exchangeDeclare(exchangeName, "direct", durable);
@@ -26,23 +26,23 @@ public class MessageReceiver {
         QueueingConsumer consumer = new QueueingConsumer(channel);
         channel.basicConsume(queueName, false, consumer);
         boolean run = true;
-       // while (run) {
+        while (run) {
             QueueingConsumer.Delivery delivery;
             try {
                 delivery = consumer.nextDelivery();
 
-            //    channel.close();
-             //   conn.close();
-               // return new String((delivery.getBody()));
-             new MessageThread(channel, new String(delivery.getBody()), delivery.getEnvelope().getDeliveryTag()).start();
+           /*  channel.close();
+               conn.close();*/
+              //  return new String((delivery.getBody()));
+             new MessageThread(channel, new String(delivery.getBody()), delivery.getEnvelope().getDeliveryTag(),queueName).start();
             } catch (InterruptedException ie) {
-          //    continue;
+          //  continue;
                 channel.close();
                 conn.close();
            return  "";
-          //  }
+           }
         }
 
-        return "";
+        return  "";
     }
 }

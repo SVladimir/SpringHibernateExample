@@ -24,7 +24,7 @@ public class ProcessingDoc {
         for (Document document : documents) {
 
 
-            messageProduser.sendMessage(document.getId().toString());
+            messageProduser.sendMessage("1"+document.getId().toString());
 
         }
             // processing.procces(document);

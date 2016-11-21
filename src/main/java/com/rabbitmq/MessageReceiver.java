@@ -34,7 +34,7 @@ public class MessageReceiver {
            /*  channel.close();
                conn.close();*/
               //  return new String((delivery.getBody()));
-             new MessageThread(channel, new String(delivery.getBody()), delivery.getEnvelope().getDeliveryTag()).start();
+             new MessageThread(channel, new String(delivery.getBody()), delivery.getEnvelope().getDeliveryTag(),queueName).start();
             } catch (InterruptedException ie) {
           //  continue;
                 channel.close();
