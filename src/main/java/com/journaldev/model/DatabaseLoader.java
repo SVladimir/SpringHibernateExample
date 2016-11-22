@@ -1,4 +1,4 @@
-package com.journaldev.repository;
+package com.journaldev.model;
 /*
  * Copyright 2015 the original author or authors.
  *
@@ -15,9 +15,6 @@ package com.journaldev.repository;
  * limitations under the License.
  */
 
-import com.journaldev.model.Account;
-import com.journaldev.model.Client;
-import com.journaldev.model.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.ComponentScan;

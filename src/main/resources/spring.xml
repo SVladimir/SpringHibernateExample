@@ -5,8 +5,10 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+<!--
 	<context:annotation-config />
 	<context:component-scan base-package="com.journaldev.model" />
+-->
 	<bean id = "dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<constructor-arg value="jdbc:h2:tcp://localhost/~/test;USER=sa;password="/>
 	</bean>
@@ -17,7 +19,7 @@
 -->
 
 
-	<bean id="entityManagerFactory"
+	<!--<bean id="entityManagerFactory"
 		  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="packagesToScan" value="com.journaldev.model"/>
 		<property name="persistenceUnitName" value="fcmsServer" />
@@ -39,7 +41,7 @@
 			</bean>
 		</property>
 	</bean>
-
+-->
 <!-- Hibernate 3 XML SessionFactory Bean definition-->
 <!-- 	<bean id="hibernate3SessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">

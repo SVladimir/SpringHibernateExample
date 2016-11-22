@@ -1,4 +1,4 @@
-package com.journaldev.repository;
+package com.journaldev.model;
 
 /**
  * Created by vsshm_000 on 15.11.2016.
