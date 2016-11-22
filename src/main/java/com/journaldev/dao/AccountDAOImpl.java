@@ -41,7 +41,17 @@ public class AccountDAOImpl implements AccountDAO {
 		session.close();
 		return accountList;
 	}
-
+	@Override
+	public Account findByNum(String num) {
+		Session session = this.sessionFactory.openSession();
+		List<Account> AccountList = session.createQuery("from Account d where d.account = :num").setParameter("num", num).list();
+		session.close();
+		for (Account account : AccountList) {
+			return account;
+		}
+        /*Not found*/
+		return null;
+	}
 	@Override
 	public void removeAccount(Long id) {
 		Session session = this.sessionFactory.openSession();

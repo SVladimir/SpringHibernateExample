@@ -4,7 +4,6 @@ package com.journaldev.model;
  * Created by vsshm_000 on 15.11.2016.
  */
 
-import com.journaldev.model.Account;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**

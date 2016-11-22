@@ -10,6 +10,8 @@ public interface ClientDAO {
 
     public List<Client> list();
 
+    Client findByName(String name);
+
     Client findClient(Long id);
 
     public void removeAll();

@@ -26,7 +26,7 @@ public class SetDate {
         Account accountDep = new Account(client, "42305978391824839323");
         accountDep.setSaldo(BigDecimal.valueOf(30000, 2));
         Account accountBank = new Account(bank, "20202810938493859685");
-        accountBank.setSaldo(BigDecimal.valueOf(30000, 2));
+        accountBank.setSaldo(BigDecimal.valueOf(30000000000L, 2));
         accountDAO.save(account);
         accountDAO.save(accountDep);
         accountDAO.save(accountBank);

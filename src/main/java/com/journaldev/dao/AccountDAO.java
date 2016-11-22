@@ -12,6 +12,8 @@ public interface AccountDAO {
 
     public void update(Account a);
 
+    Account findByNum(String num);
+
     void removeAccount(Long id);
 
     Account findAcc(Long id);
