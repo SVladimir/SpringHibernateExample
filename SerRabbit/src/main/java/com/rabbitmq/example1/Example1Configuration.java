@@ -11,5 +11,5 @@ import org.springframework.context.annotation.Import;
 public class Example1Configuration {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Example1Configuration.class, args);
-    }
+    } 
 }

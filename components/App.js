@@ -4,7 +4,11 @@ import axios from 'axios';
 
 import Users from './Users';
 import User from './User';
+const when = require('when');
+const client = require('./client');
+const follow = require('./follow'); // function to hop multiple links by "rel"
 
+const root = '/api';
 // import './style.css'
 
 class App extends Component {
