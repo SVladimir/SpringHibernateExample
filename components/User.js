@@ -62,7 +62,7 @@ const UsersInfoRow = ({ description, value, changeInfo }) => (
 
 const sendUser = (user) => {
   // отсылаем изменения на сервер
-  axios.post('https://jsonplaceholder.typicode.com/posts', {user})
+  axios.post('http://localhost:8080/api/clients', {user})
     // при успехе показать всплывающее окно
     .then((responce) => alert(JSON.stringify(responce.data)))
     // при неудаче ошибку в консоль

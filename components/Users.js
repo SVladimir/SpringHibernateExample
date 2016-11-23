@@ -43,6 +43,9 @@ const UsersItemRow = ({ description, value }) => (
   </div>
 );
 
+
+
+
 const UsersItem = ({ id, name, website, selectUser }) => (
   <div style={style.card} onClick={() => selectUser(id)}>
     <div style={style.icon}>{name[0]}</div>
